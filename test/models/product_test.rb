@@ -12,4 +12,10 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors.full_messages.include?("Name can't be blank")
   end
 
+  test "price must be number" do
+    product = Product.new(name: "Application", price: "$0.99")
+    refute product.save, 'price must be a number'
+    assert product.errors.full_messages.include?("Price is not a number")
+  end
+
 end
