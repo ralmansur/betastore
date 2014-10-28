@@ -19,7 +19,10 @@
     <td><%= @product.created_at %></td>
     <td><%= image_tag @product.image_url, alt: @product.image_url %></td>
   </tr>
-
-<a href="<%= edit_admin_product_path %>">Edit Product</a>
-
 </table>
+
+<a href="<%= edit_admin_product_path %>">Edit Product</a><br><br>
+<a href="<%= admin_products_path %>">Go back to Index</a><br>
+<br>
+<br>
+<%= button_to("Delete", admin_product_path(@product), {method: "delete"}) %>

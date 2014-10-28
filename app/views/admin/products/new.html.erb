@@ -6,11 +6,11 @@
   <%= f.label :image_url %>
   <%= f.text_field :image_url %>
   <%= f.submit %>
-<% end %>
+<% end %><br>
 
 <% for error in @product.errors.full_messages %>
   <div class="error"><%= error %></div>
-<% end %>
+<% end %><br>
 
 
 <a href="<%= admin_products_path %>">Go Back to Index</a>
