@@ -1,11 +1,20 @@
-<%= form_for [:admin, @product] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-  <%= f.submit %>
+<%= form_for [:admin, @product], {html: {roll: 'form'}} do |f| %>
+  <div class='form-group'>
+    <%= f.label :name %>
+    <%= f.text_field :name, class:'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :price %>
+    <%= f.text_field :price, class:'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url, class:'form-control' %>
+  </div>
+
+    <%= f.submit %>
 <% end %><br>
 
 <% for error in @product.errors.full_messages %>

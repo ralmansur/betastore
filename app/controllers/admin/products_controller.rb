@@ -15,7 +15,7 @@
   def create
   @product = Product.new(product_params)
     if @product.save
-      redirect_to admin_products_path, notice: "Product #{@product.id} was created."
+      redirect_to admin_products_path, notice: "Product #{@product.name} was created."
     else
       render 'new'
     end
@@ -30,7 +30,7 @@
     @id = params[:id]
     @product = Product.find(@id)
       if @product.update(product_params)
-        redirect_to admin_products_path, notice: "Product #{@product.id} was updated."
+        redirect_to admin_products_path, notice: "Product #{@product.name} was updated."
       else
         render 'edit'
       end
@@ -40,7 +40,7 @@
     @id = params[:id]
     @product = Product.find(@id)
     if @product.destroy
-      redirect_to admin_products_path, notice: "Product #{@product.id} was deleted."
+      redirect_to admin_products_path, notice: "Product #{@product.name} was deleted."
     else
       render 'show'
     end
