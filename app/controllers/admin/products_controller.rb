@@ -1,6 +1,11 @@
   class Admin::ProductsController < ApplicationController
+
   def index
-    @products = Product.order('name')
+    if logged_in?
+      @products = Product.order('name')
+    else
+      redirect_to admin_login_path, alert: 'Please log in to continue'
+    end
   end
 
   def show
@@ -48,7 +53,23 @@
 
   private
     def product_params
-      params.require(:product).permit!
+      params.require(:product).permit(:name, :price)
     end
+  end
 
-end
+  def vote_up
+    product = Product.find(params[:id])
+    product.increment(:votes)
+    product.save
+  end
+
+  def vote_down
+    product = Product.find(params[:id])
+    product.decrement(:votes)
+    product.save
+  end
+
+  #TODO
+  # implement the actions
+  # create routes for those actions
+  # create a button_to in order to exercise the routes

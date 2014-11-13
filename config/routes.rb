@@ -2,8 +2,21 @@ Betastore::Application.routes.draw do
   resources :subscriptions
   get '/products' => 'products#index'
 
+
+  resources :products do
+    member do
+      post 'vote_up'
+      post 'vote_down'
+    end
+  end
+
   namespace :admin do
     resources :products
+
+    get  '/login' => 'logins#new', as: 'logins'
+    post '/login' => 'logins#create'
+
+
     # get '/products' => 'products#index', as: 'index'
     # get '/products/new' => 'products#new', as: 'new_product'
     # post'/products' => 'products#create'

@@ -11,6 +11,12 @@
  * file per style scope.
  *
  *= require bootstrap
+ *= require tooltipster
  *= require subscriptions
  *= require_self
  */
+
+
+ .more-info{
+   display: none;
+ }

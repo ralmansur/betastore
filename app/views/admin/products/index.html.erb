@@ -20,16 +20,20 @@
     <th>Created At</th>
     <th></th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <% for product in @products %>
     <tr>
       <td><%= product.id %></td>
-      <td><%= link_to product.name, admin_product_path(product) %></td>
+      <td><%= link_to product.name, admin_product_path(product), class: "show-tooltip", title: "Link to #{product.name}" %></td>
       <td><%= number_to_currency product.price %></td>
       <td><%= product.created_at %></td>
       <div class='btn-group'>
         <td><%= link_to("Edit", edit_admin_product_path(product), {method:"get", class:"btn btn-default"}) %></td>
         <td><%= link_to("Delete", admin_product_path(@products), {method: "delete", data: { confirm: "Are you sure?" }, class:"btn btn-default"}) %></td>
+        <td><%= button_to("Vote Up", vote_up_product_path(product), {method:"post", class:"btn btn-default"}) %></td>
+        <td><%= button_to("Vote Down", vote_down_product_path(product), {method:"post", class:"btn btn-default"}) %></td>
       </div>
     </tr>
   <% end %>

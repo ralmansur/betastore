@@ -16,6 +16,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'uglifier', '>= 1.3.0'
+gem 'bcrypt-ruby', '~> 3.1.5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -31,6 +32,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'hirb'
+  gem 'brakeman', require: false
 end
 
 group :development, :test do
