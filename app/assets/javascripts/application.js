@@ -13,30 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.tooltipster
-
-
-
-// $(document).ready(function() {
-//     $('.show-tooltip').tooltipster({
-//         animation: 'slide',
-//         delay: 500,
-//         theme: 'tooltipster-default',
-//         touchDevices: false,
-//         trigger: 'hover'
-//     });
-// });
-
-
-$(function() {
-
-  $('.roll-over-item').hover(
-    function() {
-      $(this).parent().find('.more-info').show()
-    // console.log("hover in");
-  },
-    function() {
-      $(this).parent().find('.more-info').hide()
-    // console.log("hover out");
-  })
-});
